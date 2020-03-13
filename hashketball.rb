@@ -162,12 +162,11 @@ def team_colors(team_name)
   end
 end
 
-def team_names(team_name)
-  gh = game_hash
-  if gh[:home][:team_name] == team_name
-    return gh[:home][:players].map  { |k, v| k[:player_name] }
-  else
-    return gh[:away][:players].map  { |k, v| k[:player_name] }
-  end
-end
- 
+# def team_names(team_name)
+#   gh = game_hash
+#   if gh[:home][:team_name] == team_name
+#     return gh[:home][:players].map  { |k, v| k[:player_name] }
+#   else
+#     return gh[:away][:players].map  { |k, v| k[:player_name] }
+#   end
+# end
