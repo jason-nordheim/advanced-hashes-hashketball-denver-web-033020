@@ -220,7 +220,8 @@ def find_player_with_largest(stat)
 end
 
 def big_shoe_rebounds
-  return find_player_with_largest(:shoe)[:rebounds]
+  player = find_player_with_largest(:shoe)
+  return player[:rebounds]
 end
 
 
