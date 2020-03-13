@@ -127,7 +127,7 @@ def game_hash
 end
 
 def player_stats(player_name)
-  pl = player_stat(player_name)
+  pl = get_player(player_name)
   return {
     :number => pl[:number],
     :shoe => pl[:shoe],
