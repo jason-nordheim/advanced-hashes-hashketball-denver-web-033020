@@ -131,6 +131,11 @@ def num_points_scored(player_name)
   return get_player_stat(player_name, :points)
 end
 
+def shoe_size(player_name)
+  return get_player_stat(player_name, :shoe_size)
+end
+
+
 
 def get_player_stat(player_name, stat)
   gh = game_hash
