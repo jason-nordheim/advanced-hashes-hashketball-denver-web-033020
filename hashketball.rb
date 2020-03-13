@@ -129,16 +129,16 @@ end
 def player_stats(player_name)
   pl = player_stat(player_name)
   return {
-    :number => pl[:number], 
-    :shoe => pl[:shoe], 
-    :points => pl[:points], 
-    :rebounds => pl[:rebounds], 
-    :assists => pl[:assists], 
-    :steals => pl[:steals], 
-    :blocks => pl[:blocks], 
+    :number => pl[:number],
+    :shoe => pl[:shoe],
+    :points => pl[:points],
+    :rebounds => pl[:rebounds],
+    :assists => pl[:assists],
+    :steals => pl[:steals],
+    :blocks => pl[:blocks],
     :slam_dunks => pl[:slam_dunks]
   }
-end 
+end
 
 def num_points_scored(player_name)
   return get_player(player_name)[:points]
@@ -146,20 +146,20 @@ end
 
 def shoe_size(player_name)
   return get_player(player_name)[:shoe]
-end 
+end
 
 def team_colors(team_name)
   gh = game_hash
   if gh[:home][:team_name] == team_name
     return gh[:home][:colors]
-  else 
+  else
     return gh[:away][:colors]
   end
-end 
+end
 
 def team_names
   gh = game_hash
-  output = [] 
+  output = []
   output << gh[:home][:team_name]
   output << gh[:home][:team_name]
   return output
@@ -168,37 +168,37 @@ end
 def player_numbers(team_name)
   gh = game_hash
   if gh[:home][:team_name] == team_name
-    return gh[:home][:players].map  { |k, v| k[:number] } 
-  else 
-    return gh[:away][:players].map  { |k, v| k[:number] } 
+    return gh[:home][:players].map  { |k, v| k[:number] }
+  else
+    return gh[:away][:players].map  { |k, v| k[:number] }
   end
-end 
+end
 
 def get_player(player_name)
   gh = game_hash
 
-  # check home team 
+  # check home team
   home_players = gh[:home][:players]
   home_player = home_players.find { |x| x[:player_name] == player_name }
-  # if home_player is not null, we have found the player 
-  if home_player 
+  # if home_player is not null, we have found the player
+  if home_player
     return home_player
-  end 
+  end
 
-  # was not a home team player, find in the away team 
+  # was not a home team player, find in the away team
   away_players = gh[:away][:players]
   away_player = away_players.find { | x | x[:player_name] == player_name }
   if away_player
     return away_player
   end
-end 
+end
 
 # def team_names(team_name)
 #   gh = game_hash
 #   if gh[:home][:team_name] == team_name
-#     return gh[:home][:players].map  { |k, v| k[:player_name] } 
-#   else 
-#     return gh[:away][:players].map  { |k, v| k[:player_name] } 
+#     return gh[:home][:players].map  { |k, v| k[:player_name] }
+#   else
+#     return gh[:away][:players].map  { |k, v| k[:player_name] }
 #   end
-# end 
+# end
  
