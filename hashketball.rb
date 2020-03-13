@@ -127,7 +127,7 @@ def game_hash
 end
 
 def get_player_stat(player_name, stat)
-  return get_player_stat(player_name)[stat]
+  return player_stat(player_name)[stat]
 end
 
 def num_points_scored(player_name)
