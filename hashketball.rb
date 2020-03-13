@@ -126,17 +126,6 @@ def game_hash
   }
 end
 
-
-def num_points_scored(player_name)
-  return get_player_stat(player_name, :points)
-end
-
-def shoe_size(player_name)
-  return get_player_stat(player_name, :shoe)
-end
-
-
-
 def get_player_stat(player_name, stat)
   gh = game_hash
 
@@ -155,3 +144,20 @@ def get_player_stat(player_name, stat)
     return away_player[stat]
   end
 end
+
+def num_points_scored(player_name)
+  return get_player_stat(player_name, :points)
+end
+
+def shoe_size(player_name)
+  return get_player_stat(player_name, :shoe)
+end
+
+def team_colors(team_name)
+  gh = game_hash
+  if gh[:home][:team_name] == team_name
+    return gh[:home][:colors]
+  else
+    return gh[:away][:colors]
+  end
+end 
