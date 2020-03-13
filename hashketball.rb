@@ -170,6 +170,16 @@ def team_names
   return output
 end
 
+def player_numbers(team_name)
+  gh = game_hash
+  if gh[:home][:team_name] == team_name
+    return gh[:home][:players].map  { |k, v| k[:number] }
+  else
+    return gh[:away][:players].map  { |k, v| k[:number] }
+  end
+end
+
+
 # def team_names(team_name)
 #   gh = game_hash
 #   if gh[:home][:team_name] == team_name
