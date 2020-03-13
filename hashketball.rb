@@ -193,30 +193,34 @@ def get_player(player_name)
   end
 end
 
-def big_shoe_rebounds
+def find_player_with_largest(stat)
   gh = game_hash
 
   # find the player with the largest shoe size
   home_players = gh[:home][:players]
   away_players = gh[:away][:players]
 
-  largest_shoe = home_players[0]
+  player = home_players[0]
   i = 0
   while i < home_players.count do
-    if largest_shoe[:shoe] < home_players[i][:shoe]
-      largest_shoe = home_players[i]
+    if player[stat] < home_players[i][stat]
+      player = home_players[i]
     end
     i += 1
   end
   i = 0
   while i < away_players.count do
-    if largest_shoe[:shoe] < away_players[i][:shoe]
-      largest_shoe = away_players[i]
+    if player[stat] < away_players[i][stat]
+      player = away_players[i]
     end
     i += 1
   end
 
-  return largest_shoe[:rebounds]
+  return largest_shoe
+end
+
+def big_shoe_rebounds
+  return find_player_with_largest(:shoe)[:rebounds]
 end
 
 
