@@ -216,13 +216,14 @@ def find_player_with_largest(stat)
     i += 1
   end
 
-  return largest_shoe
+  return player
 end
 
 def big_shoe_rebounds
   player = find_player_with_largest(:shoe)
   return player[:rebounds]
 end
+
 
 
 # def team_names(team_name)
