@@ -128,6 +128,11 @@ end
 
 
 def num_points_scored(player_name)
+  return get_player_stat(player_name, :points)
+end
+
+
+def get_player_stat(player_name, stat)
   gh = game_hash
 
   # check home team
@@ -135,15 +140,13 @@ def num_points_scored(player_name)
   home_player = home_players.find { |x| x[:player_name] == player_name }
   # if home_player is not null, we have found the player
   if home_player
-    return home_player[:points]
+    return home_player[stat]
   end
 
   # was not a home team player, find in the away team
   away_players = gh[:away][:players]
   away_player = away_players.find { | x | x[:player_name] == player_name }
   if away_player
-    return away_player[:points]
+    return away_player[stat]
   end
 end
-
-p num_points_scored('DeSagna Diop')
