@@ -132,7 +132,7 @@ def num_points_scored(player_name)
 end
 
 def shoe_size(player_name)
-  return get_player_stat(player_name, :shoe_size)
+  return get_player_stat(player_name, :shoe)
 end
 
 
