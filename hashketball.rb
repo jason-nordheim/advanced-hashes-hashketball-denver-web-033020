@@ -164,7 +164,7 @@ end
 
 def team_names
   gh = game_hash
-  ouput = []
+  output = []
   output << gh[:home][:team_name]
   output << gh[:home][:team_name]
   return output
